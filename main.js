@@ -1,6 +1,6 @@
 
 //make it keyboard friendly
-//need %
+
 //chain operators
 
 
@@ -119,4 +119,9 @@ $('.ac').on('click', function(){
 $('.ce').on('click', function(){
 	$display.val('');
 	needNewNum = true;
+});
+
+//% button
+$('.percent').on('click', function(){
+	alert('hi');
 });

@@ -8,41 +8,49 @@
 	<title>Calculator</title>
 
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
 </head>
 <body>
-	<div>
-		<input type="text" name="display">
-	</div>
-	<div class="buttons">
-		<div class="other">
-			<button class="ac">AC</button>
-			<button class="ce">CE</button>
-			<button class="percent">%</button>
+	<section class="container">
+		<div>
+			<input type="text" name="display">
 		</div>
+		<div class="buttons">
+			<div class="one">
+				<button class="ac">AC</button>
+				<button class="ce">CE</button>
+				<button class="percent">%</button>
+				<button class="operbtn">&divide;</button>
+			</div>
 
-		<div class="numbers">
-			<button class="seven numbtn">7</button>
-			<button class="eight numbtn">8</button>
-			<button class="nine numbtn">9</button>
-			<button class="four numbtn">4</button>
-			<button class="five numbtn">5</button>
-			<button class="six numbtn">6</button>
-			<button class="one numbtn">1</button>
-			<button class="two numbtn">2</button>
-			<button class="three numbtn">3</button>
-			<button class="zero numbtn">0</button>
-			<button class="dot">.</button>
-		</div>
+			<div class="two">
+				<button class="numbtn">7</button>
+				<button class="numbtn">8</button>
+				<button class="numbtn">9</button>
+				<button class="operbtn">&times;</button>
+			</div>
 
-		<div class="operators">
-			<button class="divide operbtn">/</button>
-			<button class="multiple operbtn">*</button>
-			<button class="minus operbtn">-</button>
-			<button class="plus operbtn">+</button>
-			<button class="equal">=</button>
+			<div class="three">
+				<button class="numbtn">4</button>
+				<button class="numbtn">5</button>
+				<button class="numbtn">6</button>
+				<button class="operbtn">-</button>
+			</div>
+
+			<div class="four">
+				<button class="numbtn">1</button>
+				<button class="numbtn">2</button>
+				<button class="numbtn">3</button>
+				<button class="operbtn">+</button>
+			</div>
+
+			<div class="five">
+				<button class="zero numbtn">0</button>
+				<button class="dot">.</button>
+				<button class="equal">=</button>
+			</div>
 		</div>
-		
-	</div>
+	</section>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="main.js"></script>
