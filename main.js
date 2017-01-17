@@ -73,13 +73,14 @@ $('.operbtn').on('click', function(){
 			firstMemory = add(firstMemory, Number($display.val()));
 		} else if(operator === "-"){
 			firstMemory = substract(firstMemory, Number($display.val()));
-		} else if(operator === "*"){
+		} else if(operator === "×"){
 			firstMemory = multiply(firstMemory, Number($display.val()));
-		} else if(operator === "/"){
+		} else if(operator === "÷"){
 			firstMemory = divide(firstMemory, Number($display.val()));	
 		}
 	}
 	operator = $(this).text();
+	console.log(operator);
 	chain = true;
 	needNewNum = true;
 	isThereDot = false;
@@ -94,9 +95,9 @@ $('.equal').on('click', function(){
 		firstMemory = add(firstMemory, secondMemory);
 	} else if(operator === "-"){
 		firstMemory = substract(firstMemory, secondMemory);
-	} else if(operator === "*"){
+	} else if(operator === "×"){
 		firstMemory = multiply(firstMemory, secondMemory);
-	} else if(operator === "/"){
+	} else if(operator === "÷"){
 		firstMemory = divide(firstMemory, secondMemory);	
 	}
 	showOnDisplay(firstMemory);
