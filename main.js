@@ -1,8 +1,4 @@
-
 //make it keyboard friendly
-
-//chain operators
-
 
 var $display = $('input');
 var isThereDot = false;
@@ -11,6 +7,7 @@ var firstMemory = 0;
 var secondMemory = 0;
 var operator = "";
 var chain = false;
+var numEntered = false;
 
 function add(firstNum, secondNum){
 	return firstNum + secondNum;
@@ -35,22 +32,24 @@ function showOnDisplay(arg){
 	else {
 		$display.val(arg);
 	}
-
 }
 
-
-/* ---------------- Event Listeners ---------------- */
-
-$('.numbtn').on('click', function(){
+function numClicked(e){
 	//do you need to start a new number? if so, clear the display
 	if(needNewNum){
 		showOnDisplay('');
 	}
-	showOnDisplay($display.val() + $(this).text());
+	// if(e.type === 'keypress'){
+	// 	showOnDisplay($display.val() + String.fromCharCode(e.which));
+	// } else {
+		showOnDisplay($display.val() + $(this).text());
+		numEntered = true;
+	// }
+	
 	needNewNum = false;
-});
+}
 
-$('.dot').on('click', function(){
+function dotClicked(){
 	if(needNewNum){
 		showOnDisplay('0');
 	}
@@ -59,16 +58,17 @@ $('.dot').on('click', function(){
 		showOnDisplay($display.val() + '.');
 		isThereDot = true;
 	}
+	numEntered = true;
 	needNewNum = false;
-});
+}
 
 //when an operator is clicked, it puts the number in memory 
 //to wait for the second number
 //chain variable helps to determine if you are doing math with more than 2 numbers
-$('.operbtn').on('click', function(){
-	if(chain === false){
+function operClicked(){
+	if((chain === false)){
 		firstMemory = Number($display.val());
-	} else {
+	} else if(numEntered){
 		if(operator === "+"){
 			firstMemory = add(firstMemory, Number($display.val()));
 		} else if(operator === "-"){
@@ -78,18 +78,20 @@ $('.operbtn').on('click', function(){
 		} else if(operator === "÷"){
 			firstMemory = divide(firstMemory, Number($display.val()));	
 		}
-	}
+	} 
+
 	operator = $(this).text();
 	console.log(operator);
 	chain = true;
 	needNewNum = true;
 	isThereDot = false;
-});
+	numEntered = false;
+}
 
 //when equal is clicked, it does the operation and saves the result in
 //memory1 and erases memory2. 
 //Sometimes people use the last result to do more math
-$('.equal').on('click', function(){
+function equalClicked(){
 	secondMemory = Number($display.val());
 	if(operator === "+"){
 		firstMemory = add(firstMemory, secondMemory);
@@ -105,24 +107,61 @@ $('.equal').on('click', function(){
 	needNewNum = true;
 	isThereDot = false;
 	chain = false;
-});
+	numEntered = false;
+}
 
 //AC, clears memory1 and memory2
-$('.ac').on('click', function(){
+function acClicked(){
 	firstMemory = 0;
 	secondMemory = 0;
 	showOnDisplay('');
 	needNewNum = true;
 	chain = false;
-});
+	numEntered = false;
+}
 
 //CE, clears last entry, keeps other ones
-$('.ce').on('click', function(){
+function ceClicked(){
 	$display.val('');
 	needNewNum = true;
-});
+	numEntered = false;
+}
 
-//% button
-$('.percent').on('click', function(){
-	alert('hi');
-});
+
+
+/* ---------------- Event Listeners ---------------- */
+
+$('.numbtn').on('click',  numClicked);
+
+$('.dot').on('click', dotClicked);
+
+$('.operbtn').on('click', operClicked);
+
+$('.equal').on('click', equalClicked);
+
+$('.ac').on('click', acClicked);
+
+$('.ce').on('click', ceClicked);
+
+// $(document).keypress(function(e){
+// 	console.log(e);
+// 	switch(e.which) {
+// 		case 48:
+// 		case 49:
+// 		case 50:
+// 		case 51:
+// 		case 52:
+// 		case 53:
+// 		case 54:
+// 		case 55:
+// 		case 56:
+// 		case 57:
+// 			numClicked(e);
+// 			break;
+// 		case 190:	
+// 			dotClicked();
+// 			break;
+
+// 	}
+
+// });

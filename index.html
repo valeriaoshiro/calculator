@@ -7,38 +7,47 @@
 
 	<title>Calculator</title>
 
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="stylePrefix.css">
 	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
 </head>
 <body>
 	<section class="container">
 		<div class="input-container">
-			<input type="text" name="display">
+			<input type="text" name="display" readonly>
 		</div>
 		
-		<button class="ac">AC</button>
-		<button class="ce">CE</button>
-		<button class="percent">%</button>
-		<button class="operbtn">&divide;</button>
+		<div class="sub-container">
+			<button class="ac">AC</button>
+			<button class="ce">CE</button>
+			<button class="operbtn">&divide;</button>
+		</div>
 			
-		<button class="numbtn">7</button>
-		<button class="numbtn">8</button>
-		<button class="numbtn">9</button>
-		<button class="operbtn">&times;</button>
-			
-		<button class="numbtn">4</button>
-		<button class="numbtn">5</button>
-		<button class="numbtn">6</button>
-		<button class="operbtn">-</button>
-		
-		<button class="numbtn">1</button>
-		<button class="numbtn">2</button>
-		<button class="numbtn">3</button>
-		<button class="operbtn">+</button>
-			
-		<button class="zero numbtn">0</button>
-		<button class="dot">.</button>
-		<button class="equal">=</button>
+		<div class="sub-container">	
+			<button class="numbtn">7</button>
+			<button class="numbtn">8</button>
+			<button class="numbtn">9</button>
+			<button class="operbtn">&times;</button>
+		</div>
+
+		<div class="sub-container">	
+			<button class="numbtn">4</button>
+			<button class="numbtn">5</button>
+			<button class="numbtn">6</button>
+			<button class="operbtn">-</button>
+		</div>
+
+		<div class="sub-container">	
+			<button class="numbtn">1</button>
+			<button class="numbtn">2</button>
+			<button class="numbtn">3</button>
+			<button class="operbtn">+</button>
+		</div>
+
+		<div class="sub-container">		
+			<button class="zero numbtn">0</button>
+			<button class="dot">.</button>
+			<button class="equal">=</button>
+		</div>
 	</section>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
