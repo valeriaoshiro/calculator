@@ -58,9 +58,8 @@ body {
 .container {
 	max-width: 400px;
 	width: 100%;
-
 	/*max-height: 70vh;*/
-	/*height: 100%;*/
+	/*height: auto;*/
 	margin: 5% auto;
 	border: 1px solid white;
 	display: -webkit-box;
@@ -145,4 +144,14 @@ button:focus {
 	-webkit-box-flex: 10;
 	    -ms-flex-positive: 10;
 	        flex-grow: 10;
+}
+
+/* Landscape */
+@media (max-height: 500px)  { 
+	* {
+		font-size: 1.5em;
+	}
+	.container {
+		margin: 1% auto;
+	}
 }
